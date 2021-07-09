@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block contenido %}
+    <div class="col-sm-12"><h1>INICIO</h1></div>
+    <div class="conteiner d-flex flex-wrap">
+        {% for aux in lista %}
+        
+        <div class="row">
+            <div class="card" style="width:200px">
+                <div class="contenedor-desc">
+                    {% if perms.app.view_subscripcion %}
+                    <p class="desc-sub">Descuento del 5% por ser Subscriptor.</p>
+                    {% endif %}
+                    {% if aux.descuento > 0 %}
+                    <p class="desc-ind">Descuento induvidual del {{ aux.descuento }}%</p>
+                    {% endif %}
+                </div>
+                {% if aux.imagen %}
+                <img class="card-img" src="{{ aux.imagen.url }}" alt="Card image" width="50px" height="50px">
+                {% else %}
+                <img src="{% static 'app/dist/img/imagen-defecto.png' %}" alt="" width="50px" height="50px">
+                {% endif %}
+                <div class="card-body">
+                    <h4 class="card-title">{{ aux.nombre }}</h4>
+                    <p class="card-text">{{ aux.descripcion }}</p>
+                    <p class="card-text h3">{{ aux.precio }}</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+
+            
+        </div>
+        
+        {% endfor %}
+        </div>
+        <div class="col-sm-12">
+            {% include 'app/paginator.html' %}
+        </div>
+
+{% endblock %}

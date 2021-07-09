@@ -1,0 +1,77 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block contenido %}
+{% if perms.view_producto %}
+<div class="container my-3 mx-3">
+    <div class="row">
+        {% if perms.app.add_producto %}
+        <a href="{% url 'agregar' %}" class="btn btn-primary">Agregar Productos</a>
+        {% else %}
+
+        {% endif %}    
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 py-4">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Descuento</th>
+                        <th>Descripcion</th>
+                        <th>Tipo</th>
+                        <th>Fecha</th>
+                        <th>Imagen</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aux in tabla %}
+                    <tr>
+                        <td>{{ aux.nombre }}</td>
+                        <td>{{ aux.precio }}</td>
+                        <td>{{ aux.descuento }}%</td>
+                        <td>{{ aux.descripcion }}</td>
+                        <td>{{ aux.tipo }}</td>
+                        <td>{{ aux.fecha }}</td>
+                        <td>{% if aux.imagen %}
+                            <img src="{{ aux.imagen.url }}" alt="" width="50" height="50">
+                        {% else %}
+                            <img src="{% static 'app/dist/img/imagen-defecto.png' %}" alt="" width="50" height="50">
+                        {% endif %}
+                        </td>
+                        <td>
+                            {% if perms.app.change_producto %}
+                            <a href="{% url 'modificar' aux.id %}" class="btn btn-primary">Modificar</a>
+                            {% endif %} 
+                            {% if perms.app.delete_producto %}
+                            <a onclick="confirmarEliminar({{ aux.id }})" class="btn btn-danger">Eliminar</a>
+                            {% endif %} 
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <div>
+                {% include 'app/paginator.html' %}
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% else %}
+<p>No estas logueado</p>
+{% endif %}
+
+            
+{% endblock %}
+
+{% block javascript %}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'app/dist/js/funcionalidades.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,196 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(230, 212, 198);
+}
+body div {
+    background-color: rgb(230, 212, 198);
+}
+nav {
+    list-style: none;
+}
+/* -----------------HEADER--------------------- */
+header {
+
+    background-image:url('../img/fondo3.png');
+    justify-content: space-between;
+    padding: 40px 100px;
+}
+header nav {
+    /* FLEX */
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content:center;
+}
+
+header nav li {
+    margin: 0 15px;
+}
+
+.colorheader {
+    padding: 70px;
+    border-radius: 20px;
+    background-color: rgb(230, 212, 198);
+    
+}
+.colorheader nav li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: teal;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+/* ------------------FIN HEADER------------------ */
+/* ------------------CONTENIDO------------------- */
+nav .logo {
+    justify-content: center;
+}
+.container-fluid {
+    background-color:rgb(230, 212, 198);
+    text-align: center;
+
+}
+
+.container-fluid li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: teal;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.container-fluid li {
+    list-style: none;
+}
+
+.menu_izq {
+    background-color:blanchedalmond;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 30px;
+}
+
+#tierra_hoja {
+    text-align: start;
+}
+#otono {
+    text-align: start;
+}
+#invierno {
+    text-align: start;
+}
+#verano {
+    text-align: start;
+}
+#primavera {
+    text-align: start;
+}
+
+/* pagina producto */
+.col-sm-9 {
+    /* FLEX */
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    margin: 40px;
+}
+
+.card img {
+    width: 200px;
+    height: 250px;
+}
+
+/* -----------------------FOOTER---------------------- */
+footer {
+    background-color: black;
+    color: white;
+
+    align-items: center;
+}
+
+footer .redes {
+    text-align: center;
+}
+footer .copyright {
+    text-align: center;
+}
+
+/* -------------------------------RESPONSIVE------------------------------- */
+/* ----------------header----------------- */
+@media (max-width: 950px) {
+    .colorheader nav li {
+        padding: 10px
+    }
+    .colorheader nav li a {
+        text-decoration: none;
+        cursor: pointer;
+        color: teal;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px;
+        
+    }
+    .colorheader {
+        padding: 20px;
+        border-radius: 20px;
+        background-color: rgb(230, 212, 198);
+        }
+}
+
+@media (max-width:700px) {
+    header nav {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+/* ----------------Contenido de la pagina------------------ */
+
+@media (max-width: 600px) {
+
+    #contenido {
+        flex-direction: column;
+        align-items: center;
+
+    }
+    #tierra_hoja {
+        text-align: center;
+    }
+    #otono {
+        text-align: center;
+    }
+    #invierno {
+        text-align: center;
+    }
+    #verano {
+        text-align: center;
+    }
+    #primavera {
+        text-align: center;
+    }
+}
+/* ----------------footer----------------- */
+@media (max-width:950px) {
+    footer h1{
+        font-size: 20px;
+    }
+    
+}
+
+@media (max-width:700px) {
+    footer h1{
+        font-size: 10px;
+    }
+    
+}

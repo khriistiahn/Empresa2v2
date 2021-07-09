@@ -1,0 +1,13 @@
+.contenedor-desc {
+    color: Black;
+    font-size : 15px;
+}
+
+.desc-sub {
+    background-color: gold;
+    border-radius: 10px;
+}
+.desc-ind {
+    background-color: red;
+    border-radius: 10px;
+}

@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="formcontacto">
+    <h1>CONTACTO</h1>
+    <div>
+        <form class="dormulario">
+            <div class="flex-lg-column">
+                <div class="col">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Ingresar nombre" name="nombre">
+                  </div>
+              <div class="col">
+                  <label for="email">Email</label>
+                  <input type="text" class="form-control" id="email" placeholder="Ingresar email" name="email">
+              </div>
+              <div class="col">
+                  <label for="comentario">Comentario</label>
+                  <input type="text" class="form-control" placeholder="Escribir comentario" name="comentario">
+              </div>
+              <div class="col">
+                  <input type="submit" value="Enviar" class="btn btn_rojo btn_form">
+              </div>
+            </div>
+        </form>
+    </div>
+    
+</div>
+{% endblock %}

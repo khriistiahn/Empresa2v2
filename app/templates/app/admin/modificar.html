@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+{% if user.is_authenticated %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 p-3">
+            
+            <h1 class="display-4">Modificar Productos</h1>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-hover">
+                    {{ formulario|crispy }}
+                </table>
+                <div class="container flex-wrap">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="submit" class="btn btn-primary" value="Modificar">
+                            <input type="reset" class="btn btn-danger" value="Limpiar">
+                        </div>
+                    </div>
+                </div>
+                {{ mensaje }}
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+{% else %}
+<p>No estas logueado</p>
+{% endif %}
+
+{% endblock %}

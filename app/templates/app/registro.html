@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<div class="formcontacto">
+    <h1>REGISTRO</h1>
+    <div>
+        <form class="dormulario">
+            <div class="flex-lg-column">
+              <div class="col">
+                  <label for="email">Email</label>
+                  <input type="text" class="form-control" id="email" placeholder="Ingresar email" name="email">
+              </div>
+              <div class="col">
+                  <label for="comentario">Contraseña</label>
+                  <input type="password" class="form-control" placeholder="Escribir Contraseña" name="contraseña1">
+              </div>
+              <div class="col">
+                  <label for="comentario">Repetir Contraseña</label>
+                  <input type="password" class="form-control" placeholder="Repetir Contraseña" name="contraseña2">
+              </div>
+              <div class="col">
+                  <input type="submit" value="Registrar" class="btn btn_rojo btn_form">
+              </div>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+{% endblock %}

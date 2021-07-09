@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMMCjardineria</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/dist/css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'app/dist/css/contacto.css' %}">
+    <link rel="shortcut icon" href="{% static 'app/dist/img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'app/dist/css/descuentos.css' %}">
+    {% load %}
+
+</head>
+<body>
+    
+        <!-- header -->
+
+        <!-- cuerpo de la pagina dividida -->
+        <header>
+            <div class="colorheader">    
+                <nav>
+                    <li><a href="{% url 'index' %}">INICIO</a></li>
+                    <li><a href="{% url 'productos' %}">PRODUCTOS</a></li>
+                    <li><a href="{% url 'contacto' %}">CONTACTOS</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">CERRAR SESION</a></li>
+                    <li><a href="{% url 'subscripcion' %}">SUSCRIPCIONES</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">INICIAR SESION</a></li>
+                    {% endif %}
+                    
+                    {% if perms.view_producto %}
+                    <li><a href="{% url 'tabla' %}">Admin</a></li>
+                    {% else %}
+
+                    {% endif %}
+                    
+                </nav>
+            </div>
+        </header>
+        
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-3">
+                <h3>Catalogo</h3>
+                <div class="menu_izq"><li><a href="">{{ user.get_username }}</a></li></div>
+                <div class="menu_izq"><li><a href="">Tierra de hoja</a></li></div>
+                <div class="menu_izq"><li><a href="">Flores de verano</a></li></div>
+                <div class="menu_izq"><li><a href="">Flores de otoño</a></li></div>
+                <div class="menu_izq"><li><a href="">Flores de invierno</a></li></div>
+                <div class="menu_izq"><li><a href="">Flores de primavera</a></li></div>
+                <div class="menu_izq"><li><a href="">Maceteros</a></li></div>
+              </div>
+              <div class="col-sm-9 d-flex flex-wrap">
+                {% block contenido %}
+                
+                {% endblock %}
+              </div> 
+            </div>
+        </div>
+
+        <!-- pie de pagina -->
+        <footer class="contacto">
+            <p class="redes">
+                Instagram : <b>@BBMCjardineria</b> <br>
+                Facebook : <b>BMMCjardineria</b> <br>
+                Email : bmmcjardineria@gmail.com
+
+            </p>
+            <h1 class="copyright">BMMCjardinería - @Copyright - Todos los derechos reservados</h1>
+        </footer>
+
+</body>
+{% block javascript %}
+
+{% endblock %}
+</html>

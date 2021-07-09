@@ -1,0 +1,16 @@
+    {% extends 'app/base.html' %}
+    {% load static %}
+
+    {% block contenido %}
+    
+    <div class="container">
+        <h3>Inicio</h3>
+        <div>
+            <P>Bienvenidos a la pagina de Jardineria BMMC</P>
+        </div>
+        <div class="logo">
+            <img src="{% static 'app/dist/img/logo.png' %}" alt="">
+        </div>
+        
+    </div>
+    {% endblock %}

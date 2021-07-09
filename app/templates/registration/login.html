@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 p-3">
+            
+            <h1 class="display-4">Iniciar sesion</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <table class="table table-hover">
+                    {{ formulario }}
+                </table>
+                <div class="container flex-wrap">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>Si no tiene cuenta <a href="{% url 'registrar_user' %}">Registrate.</a> </p>
+                            <input type="submit" class="btn btn-primary" value="Acceder">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+{% endblock %}
